@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D playerRigidBody;
     public float playerSpeed = 1f;
+public float currentSpeed = 1f;
 
     public Vector2 playerDirection;
 
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private float timeCross = 1.20f;
 
     private bool comboControl;
+
+    private bool isDead;
     void Start()
     {
         //Obtem e inicializa as propriedades do RigidBody2D
@@ -40,8 +43,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (isWalking == false && !comboControl)
-            {
+            
+            
 
 
                 if (punchCount < 2)
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
                 PlayerCross();
                     punchCount = 0;
                 }
-            }
+            
 
         }
 
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
         isWalking= false;
         }
         
-        playerRigidBody.MovePosition(playerRigidBody.position + playerSpeed * Time.fixedDeltaTime * playerDirection);
+        playerRigidBody.MovePosition(playerRigidBody.position + currentSpeed * Time.fixedDeltaTime * playerDirection);
     }
 
     void PlayerMove() 
@@ -142,5 +145,15 @@ public class PlayerController : MonoBehaviour
         punchCount = 0;
 
         comboControl = false;
+    }
+
+    void ZeroSpeed()
+    {
+        currentSpeed = 0;
+    }
+
+    void ResetSpeed()
+    {
+        currentSpeed = playerSpeed;
     }
 }
