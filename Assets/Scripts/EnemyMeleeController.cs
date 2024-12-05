@@ -178,6 +178,15 @@ public class EnemyMeleeController : MonoBehaviour
             currentHealth -= damage;
 
             animator.SetTrigger("HitDamage");
+
+            if (currentHealth <= 0)
+            {
+                isDead = true;
+
+                ZeroSpeed();
+
+                animator.SetTrigger("Dead");
+            }
         }
     }
 
@@ -189,5 +198,10 @@ public class EnemyMeleeController : MonoBehaviour
     void ResetSpeed()
     {
         currentSpeed = enemySpeed;
+    }
+
+    public void DisableEnemy()
+    {
+        this.gameObject.SetActive(false);
     }
 }

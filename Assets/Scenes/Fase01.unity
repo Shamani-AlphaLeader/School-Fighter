@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 535402786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: -0.25, z: -9.953855}
+  m_LocalPosition: {x: 0.075, y: -0.24, z: -9.953855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -920,7 +920,7 @@ Transform:
   m_GameObject: {fileID: 1605805058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.08, y: -0.25, z: 0.046144996}
+  m_LocalPosition: {x: 0.075, y: -0.24, z: 0.046144996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bb6c921dd5e6f4d859c08bfa0ad2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 16
+  damage: 7
 --- !u!1 &1797765370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1157,7 @@ Transform:
   m_GameObject: {fileID: 1797765370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.193, y: -0.356, z: 0}
+  m_LocalPosition: {x: 0.946, y: -0.259, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1252,13 +1252,13 @@ MonoBehaviour:
   isDead: 0
   facingRight: 0
   previousDirectionRight: 0
-  enemySpeed: 0.3
+  enemySpeed: 0.5
   currentSpeed: 0
   horizontalForce: 0
   verticalForce: 0
-  maxHealth: 0
-  currentHealth: 0
-  staggerTime: 0.5
+  maxHealth: 32
+  currentHealth: 32
+  staggerTime: 0.7
   isTakingDamage: 0
 --- !u!1 &1842118424
 GameObject:
