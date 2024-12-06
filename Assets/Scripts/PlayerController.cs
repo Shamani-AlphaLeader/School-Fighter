@@ -24,7 +24,14 @@ public float currentSpeed = 1f;
 
     private bool comboControl;
 
+    // Indica se o plyer esta morto
     private bool isDead;
+
+    // Propriedades para UI
+    public int maxHealth = 10;
+    public int currentHealth;
+    public Sprite playerImage;
+
     void Start()
     {
         //Obtem e inicializa as propriedades do RigidBody2D
@@ -32,6 +39,10 @@ public float currentSpeed = 1f;
 
         //Obtem e inicializa as propriedades do animator
         playerAnimator = GetComponent<Animator>();
+        currentSpeed = playerSpeed;
+
+        // Inicia a vida do player
+        currentHealth = maxHealth;
     }
 
     
@@ -155,5 +166,15 @@ public float currentSpeed = 1f;
     void ResetSpeed()
     {
         currentSpeed = playerSpeed;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!isDead)
+        {
+            currentHealth -= damage;
+            playerAnimator.SetTrigger("HitDamage");
+            FindFirstObjectByType<UIManager>().UpdatePlayerHealth(currentHealth);
+        }
     }
 }
