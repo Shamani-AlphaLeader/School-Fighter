@@ -32,6 +32,13 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
     public Sprite playerImage;
+
+    // SFX do player
+    private AudioSource playerAudioSource;
+
+    public AudioClip jabSound;
+    public AudioClip crossSound;
+
     
     void Start()
     {
@@ -44,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
         // Iniciar a vida do Player
         currentHealth = maxHealth;
+
+        // Inicia o componente AudioSource do player
+        playerAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -141,11 +151,23 @@ public class PlayerController : MonoBehaviour
         //Acessa a animação do JAb
         //Ativa o gatilho de ataque Jab
         playerAnimator.SetTrigger("isJab");
+
+        // Define o SFX a ser reproduzido
+        playerAudioSource.clip = jabSound;
+
+        // Executa o SFX
+        playerAudioSource.Play();
     }
 
     void PlayerCross()
     {
         playerAnimator.SetTrigger("isCross");
+
+        // Define o SFX a ser reproduzido
+        playerAudioSource.clip = crossSound;
+
+        // Executa o SFX
+        playerAudioSource.Play();
     }
     IEnumerator CrossController()
     {

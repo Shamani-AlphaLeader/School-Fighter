@@ -7,10 +7,13 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
 
+    private AudioSource audioSource;
+    private AudioClip splashSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -19,6 +22,9 @@ public class LevelLoader : MonoBehaviour
         // Se pressionar qualquer tecla
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            audioSource.clip = splashSound;
+            audioSource.Play();
+
             //Mudar de Cena
             StartCoroutine(CarregarFase("Fase1"));
         }
